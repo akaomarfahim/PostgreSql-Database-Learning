@@ -3,18 +3,16 @@
  <img width=200px height=200px src="https://www.postgresql.org/media/img/about/press/elephant.png" alt="Project logo"></a>
 </p>
 
-<h3 align="center">PostgreSql Database Learning</h3>
+<h1 align="center">PostgreSql Database Learning</h1>
 
 <div align="center">
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+[![Status](https://img.shields.io/badge/status-active-success.svg?style=for-the-badge)]()
+[![GitHub Issues](https://img.shields.io/github/issues/akaomarfahim/PostgreSql-Database-Learning.svg?style=for-the-badge)](https://github.com/akaomarfahim/PostgreSql-Database-Learning/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/akaomarfahim/PostgreSql-Database-Learning.svg?style=for-the-badge)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 </div>
-
-# Learning PostgreSQL
 
 A comprehensive repository for learning PostgreSQL database management system from basics to advanced concepts.
 
@@ -22,6 +20,8 @@ A comprehensive repository for learning PostgreSQL database management system fr
 
 - [About](#about)
 - [Prerequisites](#prerequisites)
+- [Learning Path](#learning-path)
+- [Practice Exercises](#practice-exercises)
 - [Installation](#installation)
   - [Windows](#windows)
   - [macOS](#macos)
@@ -32,20 +32,20 @@ A comprehensive repository for learning PostgreSQL database management system fr
   - [Starting and Stopping PostgreSQL](#Starting-and-Stopping-PostgreSQL)
     - [Linux (systemd)](#Linux-systemd)
     - [macOS (Homebrew)](#macOS-Homebrew)
-    - [Manual start/stop](#Manual-start/stop)
+    - [Manual start/stop](#Manual-startstop)
   - [Connecting to PostgreSQL via Terminal](#Connecting-to-PostgreSQL-via-Terminal)
   - [Setting Up PostgreSQL User and Database](#Setting-Up-PostgreSQL-User-and-Database)
 - [Essential psql Meta-Commands](#Essential-psql-Meta-Commands)
   - [Database and table information](#Database-and-table-information)
+  - [Management Commands](#Management-Commands)
   - [Query and display options](#Query-and-display-options)
   - [Editor and history](#Editor-and-history)
 - [Database Backup and Restore from Terminal](#Database-Backup-and-Restore-from-Terminal)
 - [Monitoring and Maintenance](#Monitoring-and-Maintenance)
+- [Environment Configuration](#Environment-Configuration)
 - [VS Code Setup and Integration](#VS-Code-Setup-and-Integration)
 - [Repository Structure](#repository-structure)
-- [Learning Path](#learning-path)
-- [Practice Exercises](#practice-exercises)
-- [Useful Commands](#useful-commands)
+- [Roadmap](#Roadmap)
 - [Resources](#resources)
 - [Contributing](#contributing)
 - [License](#license)
@@ -59,6 +59,62 @@ This repository contains tutorials, examples, and exercises for learning Postgre
 - Basic understanding of databases and SQL concepts
 - Command line familiarity
 - Text editor or IDE of your choice
+
+## Learning Path
+
+### Beginner Level
+
+1. **PostgreSQL Basics**
+
+   - Installation and setup
+   - Basic SQL commands
+   - Data types and constraints
+   - CRUD operations
+
+2. **Database Design**
+   - Entity-Relationship diagrams
+   - Normalization
+   - Primary and foreign keys
+   - Indexes basics
+
+### Intermediate Level
+
+1. **Advanced Queries**
+
+   - Joins (INNER, LEFT, RIGHT, FULL)
+   - Subqueries and CTEs
+   - Window functions
+   - Aggregate functions
+
+2. **Database Objects**
+   - Views and materialized views
+   - Stored procedures and functions
+   - Triggers
+   - Sequences
+
+### Advanced Level
+
+1. **Performance Optimization**
+
+   - Query optimization
+   - Index strategies
+   - EXPLAIN and ANALYZE
+   - Connection pooling
+
+2. **Administration**
+   - User management and permissions
+   - Backup and recovery
+   - Monitoring and logging
+   - High availability
+
+## Practice Exercises
+
+Each section includes hands-on exercises to reinforce learning:
+
+- **Basic Exercises**: Simple queries, data insertion, updates
+- **Intermediate Exercises**: Complex joins, data analysis queries
+- **Advanced Exercises**: Performance optimization, stored procedures
+- **Real-world Projects**: Complete applications with PostgreSQL backend
 
 ## Installation
 
@@ -213,8 +269,6 @@ docker run --name postgres-learning \
 docker exec -it postgres-learning psql -U postgres -d learning_db
 ```
 
-## Getting Started
-
 <!-- ### Initial Setup
 
 1. **Set up your first database:**
@@ -246,6 +300,8 @@ INSERT INTO students (name, email) VALUES
 <!-- ### Initial PostgreSQL Configuration and Shell/Terminal Usage
 
 ### Terminal/Shell Commands and Usage -->
+
+## Getting Started
 
 ### Starting and Stopping PostgreSQL
 
@@ -292,9 +348,9 @@ sudo -u postgres pg_ctl start -D /var/lib/postgresql/data
 sudo -u postgres pg_ctl stop -D /var/lib/postgresql/data
 ```
 
-#### Connecting to PostgreSQL via Terminal
+### Connecting to PostgreSQL via Terminal
 
-**Basic connection commands:**
+#### Basic connection commands
 
 ```bash
 # Connect as postgres user to default database
@@ -313,7 +369,7 @@ psql -U username -d database_name -W
 psql "postgresql://username:password@hostname:5432/database_name"
 ```
 
-**Connection with environment variables:**
+#### Connection with environment variables
 
 > _NOTE: if your PostgreSQL is installed locally and listens on port 5432 (default), you don’t need to set any environment variables — tools like psql will work fine without it._
 
@@ -331,7 +387,7 @@ psql
 
 ### Setting Up PostgreSQL User and Database
 
-1. **Access PostgreSQL prompt:**
+**1. Access PostgreSQL prompt:**
 
 ```bash
 psql
@@ -475,6 +531,28 @@ host    all             all             0.0.0.0/0               md5
 
 -- Show current database and user
 \conninfo
+
+-- Show current user
+SELECT current_user;
+
+-- Show version
+SELECT version();
+```
+
+### Management Commands
+
+```sql
+-- Create database
+CREATE DATABASE database_name;
+
+-- Drop database
+DROP DATABASE database_name;
+
+-- Create user
+CREATE USER username WITH PASSWORD 'password';
+
+-- Grant privileges
+GRANT ALL PRIVILEGES ON DATABASE database_name TO username;
 ```
 
 ### Query and display options
@@ -601,7 +679,7 @@ psql -U username -d database_name -c "ANALYZE;"
 psql -U username -d database_name -c "VACUUM FULL;"
 ```
 
-### Environment Configuration
+## Environment Configuration
 
 **Create .pgpass file for password-less connections:**
 
@@ -634,32 +712,11 @@ nano ~/.psqlrc
 \echo 'Type \\q to quit, \\? for help'
 ```
 
-### Connecting to PostgreSQL
-
-#### Command Line (psql)
-
-```bash
-# Local connection
-psql -U postgres -d learning_db
-
-# Remote connection
-psql -h hostname -U username -d database_name
-
-# Connection with all parameters
-psql -h localhost -p 5432 -U username -d database_name -W
-```
-
-#### Using pgAdmin
-
-1. Open pgAdmin in your browser
-2. Add new server connection
-3. Enter connection details (host, port, username, password)
-
 ## VS Code Setup and Integration
 
 ### Prerequisites for VS Code Setup
 
-Before setting up VS Code, ensure PostgreSQL is installed and running on your system.
+Before setting up VS Code, ensure PostgreSQL is [Installed](#Installation) and [running](#Starting-and-Stopping-PostgreSQL) on your system.
 
 ### Step 1: Check Existing Users and Databases
 
@@ -670,8 +727,12 @@ First, let's check what users and databases already exist in your PostgreSQL ins
 sudo -u postgres psql
 
 # Or on Windows/macOS
-psql -U postgres
+psql postgres
 ```
+
+> If these commands reply as the user does not exist.
+> </br> - try using your system username.
+> </br> - or just get into the PostgreSql with "psql" command and then - \du - to list down all the users.
 
 **Check existing databases:**
 
@@ -706,6 +767,9 @@ Now let's create the required user and database:
 ```bash
 # Connect to PostgreSQL as superuser
 sudo -u postgres psql
+
+or
+sudo -u your-system-username psql
 ```
 
 **Create the user "omar" with password "omar123":**
@@ -836,12 +900,13 @@ psql -U omar -d learning -h localhost
 -- Test connection
 SELECT version();
 
--- Create a test table
-CREATE TABLE test_connection (
+-- Create a test table only if the table not exist.
+CREATE TABLE IF NOT EXISTS test_connection (
     id SERIAL PRIMARY KEY,
     message VARCHAR(100),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 
 -- Insert test data
 INSERT INTO test_connection (message) VALUES ('Hello from VS Code!');
@@ -862,10 +927,11 @@ SELECT * FROM test_connection;
 {
   "sqltools.connections": [
     {
-      "name": "PostgreSQL Learning",
-      "driver": "PostgreSQL",
+      "previewLimit": 50,
       "server": "localhost",
       "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "Local : Learning",
       "database": "learning",
       "username": "omar",
       "password": "omar123",
@@ -891,6 +957,8 @@ SELECT * FROM test_connection;
 
 **Keyboard Shortcuts:**
 
+> FOR MACOS : Use "command" key instead of ctrl.
+
 - `Ctrl+E, E` - Execute selected query
 - `Ctrl+E, H` - Show query history
 - `Ctrl+E, D` - Describe table
@@ -904,11 +972,10 @@ SELECT * FROM test_connection;
 ├── extensions.json        # Recommended extensions
 └── tasks.json            # Custom tasks
 
-sql-files/
-├── basics/
-├── intermediate/
-├── advanced/
-└── projects/
+├── basics_*
+├── intermediate_*
+├── advanced_*
+└── projects_*
 ```
 
 **Create .vscode/extensions.json for team collaboration:**
@@ -921,17 +988,53 @@ sql-files/
 
 ### Troubleshooting VS Code Connection Issues
 
-**Common Issues and Solutions:**
+#### Common Issues and Solutions:
 
 1. **Connection Refused:**
 
-   ```bash
-   # Check if PostgreSQL is running
-   sudo systemctl status postgresql
+    ```bash
+    # Check if PostgreSQL is running
+      # Linux
+      > sudo systemctl status postgresql
 
-   # Start if not running
-   sudo systemctl start postgresql
-   ```
+      # macOS (Homebrew-installed PostgreSQL)
+      > brew services list
+
+    # Start if not running
+    # Linux
+      > sudo systemctl start postgresql
+
+      # macOS (Homebrew-installed PostgreSQL)
+      > brew services start postgresql@15  # or your installed version
+
+    # Check if listening on port 5432
+    lsof -i :5432
+
+    ## Windows 
+
+        # Check if PostgreSQL is running
+      # Linux
+      > sudo systemctl status postgresql
+
+      # macOS (Homebrew-installed PostgreSQL)
+      > brew services list
+
+    # Start if not running
+    # Linux
+      > sudo systemctl start postgresql
+
+      # macOS (Homebrew-installed PostgreSQL)
+      > brew services start postgresql@15  # or your installed version
+
+    # Check if listening on port 5432
+    lsof -i :5432
+
+    ## Windows
+    Using Services Manager (GUI):
+      1. Press Win + R, type services.msc, press Enter.
+      2. Scroll to PostgreSQL (e.g., PostgreSQL 15).
+      3. Right-click → Start or Restart.
+    ```
 
 2. **Authentication Failed:**
 
@@ -946,7 +1049,8 @@ sql-files/
    \l
 
    -- Create if missing
-   CREATE DATABASE learning OWNER omar;
+   CREATE DATABASE your_database OWNER your_username;
+   -- CREATE DATABASE learning OWNER omar;
    ```
 
 4. **Permission Denied:**
@@ -1027,100 +1131,111 @@ learning-postgresql/
         └── employees.sql
 ```
 
-## Learning Path
+## Roadmap
 
-### Beginner Level
+___This is a roadmap diagram designed to visually represent the recommended sequence of learning, providing a clearer and more organized understanding of the step-by-step progression.___
 
-1. **PostgreSQL Basics**
+```mermaid
+graph TD
+    A[Start Learning SQL] --> B[Database Fundamentals]
 
-   - Installation and setup
-   - Basic SQL commands
-   - Data types and constraints
-   - CRUD operations
+    B --> C[Basic SQL Syntax]
+    C --> D[SELECT Statements]
+    C --> E[Data Types]
+    C --> F[Basic Operators]
 
-2. **Database Design**
-   - Entity-Relationship diagrams
-   - Normalization
-   - Primary and foreign keys
-   - Indexes basics
+    D --> G[Filtering Data]
+    G --> H[WHERE Clause]
+    G --> I[LIKE & Wildcards]
+    G --> J[IN & BETWEEN]
 
-### Intermediate Level
+    H --> K[Sorting & Grouping]
+    K --> L[ORDER BY]
+    K --> M[GROUP BY]
+    K --> N[HAVING Clause]
 
-1. **Advanced Queries**
+    L --> O[Aggregate Functions]
+    O --> P[COUNT, SUM, AVG]
+    O --> Q[MIN, MAX]
 
-   - Joins (INNER, LEFT, RIGHT, FULL)
-   - Subqueries and CTEs
-   - Window functions
-   - Aggregate functions
+    P --> R[Table Operations]
+    R --> S[CREATE TABLE]
+    R --> T[INSERT, UPDATE, DELETE]
+    R --> U[ALTER TABLE]
 
-2. **Database Objects**
-   - Views and materialized views
-   - Stored procedures and functions
-   - Triggers
-   - Sequences
+    S --> V[Intermediate Concepts]
+    V --> W[Joins]
+    W --> X[INNER JOIN]
+    W --> Y[LEFT/RIGHT JOIN]
+    W --> Z[FULL OUTER JOIN]
+    W --> AA[CROSS JOIN]
 
-### Advanced Level
+    X --> BB[Subqueries]
+    BB --> CC[Single Row Subqueries]
+    BB --> DD[Multiple Row Subqueries]
+    BB --> EE[Correlated Subqueries]
 
-1. **Performance Optimization**
+    CC --> FF[Advanced Functions]
+    FF --> GG[String Functions]
+    FF --> HH[Date Functions]
+    FF --> II[Mathematical Functions]
+    FF --> JJ[Conditional Functions]
 
-   - Query optimization
-   - Index strategies
-   - EXPLAIN and ANALYZE
-   - Connection pooling
+    GG --> KK[Window Functions]
+    KK --> LL[ROW_NUMBER, RANK]
+    KK --> MM[LAG, LEAD]
+    KK --> NN[PARTITION BY]
 
-2. **Administration**
-   - User management and permissions
-   - Backup and recovery
-   - Monitoring and logging
-   - High availability
+    LL --> OO[Advanced Topics]
+    OO --> PP[Common Table Expressions]
+    OO --> QQ[Recursive Queries]
+    OO --> RR[Pivot Tables]
+    OO --> SS[Stored Procedures]
 
-## Practice Exercises
+    PP --> TT[Database Design]
+    TT --> UU[Normalization]
+    TT --> VV[Primary & Foreign Keys]
+    TT --> WW[Indexes]
+    TT --> XX[Constraints]
 
-Each section includes hands-on exercises to reinforce learning:
+    UU --> YY[Performance Optimization]
+    YY --> ZZ[Query Optimization]
+    YY --> AAA[Index Optimization]
+    YY --> BBB[Execution Plans]
 
-- **Basic Exercises**: Simple queries, data insertion, updates
-- **Intermediate Exercises**: Complex joins, data analysis queries
-- **Advanced Exercises**: Performance optimization, stored procedures
-- **Real-world Projects**: Complete applications with PostgreSQL backend
+    ZZ --> CCC[Advanced Database Concepts]
+    CCC --> DDD[Transactions]
+    CCC --> EEE[Views]
+    CCC --> FFF[Triggers]
+    CCC --> GGG[User-Defined Functions]
 
-## Useful Commands
+    DDD --> HHH[Specialization Paths]
+    HHH --> III[Data Analysis]
+    HHH --> JJJ[Database Administration]
+    HHH --> KKK[Data Engineering]
 
-### Basic Commands
+    III --> LLL[Analytics Tools]
+    LLL --> MMM[Reporting]
+    LLL --> NNN[Business Intelligence]
 
-```sql
--- List databases
-\l
+    JJJ --> OOO[Database Management]
+    OOO --> PPP[Security]
+    OOO --> QQQ[Backup & Recovery]
 
--- Connect to database
-\c database_name
+    KKK --> RRR[ETL Processes]
+    RRR --> SSS[Data Warehousing]
+    RRR --> TTT[Big Data Technologies]
 
--- List tables
-\dt
+    %% Styling
+    classDef beginner fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef intermediate fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef advanced fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+    classDef expert fill:#fff3e0,stroke:#e65100,stroke-width:2px
 
--- Describe table structure
-\d table_name
-
--- Show current user
-SELECT current_user;
-
--- Show version
-SELECT version();
-```
-
-### Management Commands
-
-```sql
--- Create database
-CREATE DATABASE database_name;
-
--- Drop database
-DROP DATABASE database_name;
-
--- Create user
-CREATE USER username WITH PASSWORD 'password';
-
--- Grant privileges
-GRANT ALL PRIVILEGES ON DATABASE database_name TO username;
+    class A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U beginner
+    class V,W,X,Y,Z,AA,BB,CC,DD,EE,FF,GG,HH,II,JJ,KK,LL,MM,NN intermediate
+    class OO,PP,QQ,RR,SS,TT,UU,VV,WW,XX,YY,ZZ,AAA,BBB,CCC,DDD,EEE,FFF,GGG advanced
+    class HHH,III,JJJ,KKK,LLL,MMM,NNN,OOO,PPP,QQQ,RRR,SSS,TTT expert
 ```
 
 ## Resources
@@ -1140,7 +1255,6 @@ GRANT ALL PRIVILEGES ON DATABASE database_name TO username;
 
 - [PostgreSQL Exercises](https://pgexercises.com/)
 - [W3Schools PostgreSQL Tutorial](https://www.w3schools.com/postgresql/)
-- [Codecademy SQL Course](https://www.codecademy.com/learn/learn-sql)
 
 ## Contributing
 

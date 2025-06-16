@@ -11,5 +11,13 @@
       "username": "omar",
       "password": "omar123"
     }
-  ]
+  ],
+  "files.associations": {
+    "*.sql": "sql"
+  },
+  "editor.defaultFormatter": "ms-mssql.sql-database-projects-vscode",
+  "sql.format.keywordCase": "upper",
+  "[sql]": {
+    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+  }
 }
