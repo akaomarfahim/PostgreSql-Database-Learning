@@ -21,6 +21,7 @@ A comprehensive repository for learning PostgreSQL database management system fr
 - [About](#about)
 - [Prerequisites](#prerequisites)
 - [Learning Path](#learning-path)
+- [Roadmap](#Roadmap)
 - [Practice Exercises](#practice-exercises)
 - [Installation](#installation)
   - [Windows](#windows)
@@ -45,7 +46,6 @@ A comprehensive repository for learning PostgreSQL database management system fr
 - [Environment Configuration](#Environment-Configuration)
 - [VS Code Setup and Integration](#VS-Code-Setup-and-Integration)
 - [Repository Structure](#repository-structure)
-- [Roadmap](#Roadmap)
 - [Resources](#resources)
 - [Contributing](#contributing)
 - [License](#license)
@@ -115,6 +115,114 @@ Each section includes hands-on exercises to reinforce learning:
 - **Intermediate Exercises**: Complex joins, data analysis queries
 - **Advanced Exercises**: Performance optimization, stored procedures
 - **Real-world Projects**: Complete applications with PostgreSQL backend
+
+
+## Roadmap
+
+___This is a roadmap diagram designed to visually represent the recommended sequence of learning, providing a clearer and more organized understanding of the step-by-step progression.___
+
+```mermaid
+graph TD
+    A[Start Learning SQL] --> B[Database Fundamentals]
+    
+    B --> C[Basic SQL Syntax]
+    C --> D[SELECT Statements]
+    C --> E[Data Types]
+    C --> F[Basic Operators]
+    
+    D --> G[Filtering Data]
+    G --> H[WHERE Clause]
+    G --> I[LIKE & Wildcards]
+    G --> J[IN & BETWEEN]
+    
+    H --> K[Sorting & Grouping]
+    K --> L[ORDER BY]
+    K --> M[GROUP BY]
+    K --> N[HAVING Clause]
+    
+    L --> O[Aggregate Functions]
+    O --> P[COUNT, SUM, AVG]
+    O --> Q[MIN, MAX]
+    
+    P --> R[Table Operations]
+    R --> S[CREATE TABLE]
+    R --> T[INSERT, UPDATE, DELETE]
+    R --> U[ALTER TABLE]
+    
+    S --> V[Intermediate Concepts]
+    V --> W[Joins]
+    W --> X[INNER JOIN]
+    W --> Y[LEFT/RIGHT JOIN]
+    W --> Z[FULL OUTER JOIN]
+    W --> AA[CROSS JOIN]
+    
+    X --> BB[Subqueries]
+    BB --> CC[Single Row Subqueries]
+    BB --> DD[Multiple Row Subqueries]
+    BB --> EE[Correlated Subqueries]
+    
+    CC --> FF[Advanced Functions]
+    FF --> GG[String Functions]
+    FF --> HH[Date Functions]
+    FF --> II[Mathematical Functions]
+    FF --> JJ[Conditional Functions]
+    
+    GG --> KK[Window Functions]
+    KK --> LL[ROW_NUMBER, RANK]
+    KK --> MM[LAG, LEAD]
+    KK --> NN[PARTITION BY]
+    
+    LL --> OO[Advanced Topics]
+    OO --> PP[Common Table Expressions]
+    OO --> QQ[Recursive Queries]
+    OO --> RR[Pivot Tables]
+    OO --> SS[Stored Procedures]
+    
+    PP --> TT[Database Design]
+    TT --> UU[Normalization]
+    TT --> VV[Primary & Foreign Keys]
+    TT --> WW[Indexes]
+    TT --> XX[Constraints]
+    
+    UU --> YY[Performance Optimization]
+    YY --> ZZ[Query Optimization]
+    YY --> AAA[Index Optimization]
+    YY --> BBB[Execution Plans]
+    
+    ZZ --> CCC[Advanced Database Concepts]
+    CCC --> DDD[Transactions]
+    CCC --> EEE[Views]
+    CCC --> FFF[Triggers]
+    CCC --> GGG[User-Defined Functions]
+    
+    DDD --> HHH[Specialization Paths]
+    HHH --> III[Data Analysis]
+    HHH --> JJJ[Database Administration]
+    HHH --> KKK[Data Engineering]
+    
+    III --> LLL[Analytics Tools]
+    LLL --> MMM[Reporting]
+    LLL --> NNN[Business Intelligence]
+    
+    JJJ --> OOO[Database Management]
+    OOO --> PPP[Security]
+    OOO --> QQQ[Backup & Recovery]
+    
+    KKK --> RRR[ETL Processes]
+    RRR --> SSS[Data Warehousing]
+    RRR --> TTT[Big Data Technologies]
+    
+    %% Styling
+    classDef beginner fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef intermediate fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef advanced fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+    classDef expert fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    
+    class A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U beginner
+    class V,W,X,Y,Z,AA,BB,CC,DD,EE,FF,GG,HH,II,JJ,KK,LL,MM,NN intermediate
+    class OO,PP,QQ,RR,SS,TT,UU,VV,WW,XX,YY,ZZ,AAA,BBB,CCC,DDD,EEE,FFF,GGG advanced
+    class HHH,III,JJJ,KKK,LLL,MMM,NNN,OOO,PPP,QQQ,RRR,SSS,TTT expert
+```
 
 ## Installation
 
@@ -1129,113 +1237,6 @@ learning-postgresql/
         ├── northwind.sql
         ├── sakila.sql
         └── employees.sql
-```
-
-## Roadmap
-
-___This is a roadmap diagram designed to visually represent the recommended sequence of learning, providing a clearer and more organized understanding of the step-by-step progression.___
-
-```mermaid
-graph TD
-    A[Start Learning SQL] --> B[Database Fundamentals]
-
-    B --> C[Basic SQL Syntax]
-    C --> D[SELECT Statements]
-    C --> E[Data Types]
-    C --> F[Basic Operators]
-
-    D --> G[Filtering Data]
-    G --> H[WHERE Clause]
-    G --> I[LIKE & Wildcards]
-    G --> J[IN & BETWEEN]
-
-    H --> K[Sorting & Grouping]
-    K --> L[ORDER BY]
-    K --> M[GROUP BY]
-    K --> N[HAVING Clause]
-
-    L --> O[Aggregate Functions]
-    O --> P[COUNT, SUM, AVG]
-    O --> Q[MIN, MAX]
-
-    P --> R[Table Operations]
-    R --> S[CREATE TABLE]
-    R --> T[INSERT, UPDATE, DELETE]
-    R --> U[ALTER TABLE]
-
-    S --> V[Intermediate Concepts]
-    V --> W[Joins]
-    W --> X[INNER JOIN]
-    W --> Y[LEFT/RIGHT JOIN]
-    W --> Z[FULL OUTER JOIN]
-    W --> AA[CROSS JOIN]
-
-    X --> BB[Subqueries]
-    BB --> CC[Single Row Subqueries]
-    BB --> DD[Multiple Row Subqueries]
-    BB --> EE[Correlated Subqueries]
-
-    CC --> FF[Advanced Functions]
-    FF --> GG[String Functions]
-    FF --> HH[Date Functions]
-    FF --> II[Mathematical Functions]
-    FF --> JJ[Conditional Functions]
-
-    GG --> KK[Window Functions]
-    KK --> LL[ROW_NUMBER, RANK]
-    KK --> MM[LAG, LEAD]
-    KK --> NN[PARTITION BY]
-
-    LL --> OO[Advanced Topics]
-    OO --> PP[Common Table Expressions]
-    OO --> QQ[Recursive Queries]
-    OO --> RR[Pivot Tables]
-    OO --> SS[Stored Procedures]
-
-    PP --> TT[Database Design]
-    TT --> UU[Normalization]
-    TT --> VV[Primary & Foreign Keys]
-    TT --> WW[Indexes]
-    TT --> XX[Constraints]
-
-    UU --> YY[Performance Optimization]
-    YY --> ZZ[Query Optimization]
-    YY --> AAA[Index Optimization]
-    YY --> BBB[Execution Plans]
-
-    ZZ --> CCC[Advanced Database Concepts]
-    CCC --> DDD[Transactions]
-    CCC --> EEE[Views]
-    CCC --> FFF[Triggers]
-    CCC --> GGG[User-Defined Functions]
-
-    DDD --> HHH[Specialization Paths]
-    HHH --> III[Data Analysis]
-    HHH --> JJJ[Database Administration]
-    HHH --> KKK[Data Engineering]
-
-    III --> LLL[Analytics Tools]
-    LLL --> MMM[Reporting]
-    LLL --> NNN[Business Intelligence]
-
-    JJJ --> OOO[Database Management]
-    OOO --> PPP[Security]
-    OOO --> QQQ[Backup & Recovery]
-
-    KKK --> RRR[ETL Processes]
-    RRR --> SSS[Data Warehousing]
-    RRR --> TTT[Big Data Technologies]
-
-    %% Styling
-    classDef beginner fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    classDef intermediate fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
-    classDef advanced fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
-    classDef expert fill:#fff3e0,stroke:#e65100,stroke-width:2px
-
-    class A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U beginner
-    class V,W,X,Y,Z,AA,BB,CC,DD,EE,FF,GG,HH,II,JJ,KK,LL,MM,NN intermediate
-    class OO,PP,QQ,RR,SS,TT,UU,VV,WW,XX,YY,ZZ,AAA,BBB,CCC,DDD,EEE,FFF,GGG advanced
-    class HHH,III,JJJ,KKK,LLL,MMM,NNN,OOO,PPP,QQQ,RRR,SSS,TTT expert
 ```
 
 ## Resources
