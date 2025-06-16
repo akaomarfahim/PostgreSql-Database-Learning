@@ -213,10 +213,10 @@ graph TD
     RRR --> TTT[Big Data Technologies]
     
     %% Styling
-    classDef beginner fill:#e65100,stroke:#01579b,stroke-width:2px
-    classDef intermediate fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
-    classDef advanced fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
-    classDef expert fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef beginner fill:#e1f5fe,color:#000,stroke:#01579b,stroke-width:2px
+    classDef intermediate fill:#f3e5f5,color:#000,stroke:#4a148c,stroke-width:2px
+    classDef advanced fill:#e8f5e8,color:#000,stroke:#1b5e20,stroke-width:2px
+    classDef expert fill:#fff3e0,color:#000,stroke:#e65100,stroke-width:2px
     
     class A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U beginner
     class V,W,X,Y,Z,AA,BB,CC,DD,EE,FF,GG,HH,II,JJ,KK,LL,MM,NN intermediate
