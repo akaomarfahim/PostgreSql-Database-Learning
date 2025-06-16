@@ -1,0 +1,15 @@
+{
+  "cSpell.words": ["PGDATABASE", "PGHOST", "PGPASSWORD", "PGPORT", "PGUSER", "psql"],
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "Local : Learning",
+      "database": "learning",
+      "username": "omar",
+      "password": "omar123"
+    }
+  ]
+}
