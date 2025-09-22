@@ -502,6 +502,11 @@ psql
 ```bash
 psql
 ```
+Or,
+
+```bash
+sudo -u postgres psql
+```
 
 2. **Create a new database user:**
 
@@ -1293,3 +1298,4 @@ If you have questions or need help:
 **Happy Learning!** 🐘
 
 Remember: The best way to learn PostgreSQL is by practicing. Start with the basics and gradually work your way up to more complex concepts.
+
